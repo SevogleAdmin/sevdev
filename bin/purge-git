@@ -1,0 +1,23 @@
+#!/bin/sh
+set -x
+
+REPO=$1
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GIT_PATH=$MY_PATH/../git
+
+if test -n "$REPO"; 
+then
+  	if [ -d $GIT_PATH/$REPO ]
+  	then
+	    (cd $GIT_PATH/$REPO && git branch --merged master | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d )
+  	else
+  		echo "unknown repo $REPO"
+  	fi
+
+
+else
+	echo "purge-git $( ls -1 $GIT_PATH )"
+fi
+
+
