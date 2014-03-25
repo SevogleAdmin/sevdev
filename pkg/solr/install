@@ -20,5 +20,5 @@ tar -zxvf $dest -C $MY_PATH
 
 ln -fs $MY_PATH/${solrFile} $MY_PATH/solr
 
-ln -sf $MY_PATH/../../git/choosr/hive.server/solr/template solr/example/solr/template
+ln -sf $MY_PATH/../../git/choosr/hive.server/solr/template $MY_PATH/solr/example/solr/template
 
