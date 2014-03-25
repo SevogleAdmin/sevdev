@@ -1,0 +1,18 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CACHE_PATH=$MY_PATH/../../.cache
+
+mkdir -p $CACHE_PATH
+
+fileName="eclipse-jee-kepler-SR2-macosx-cocoa-x86_64"
+
+src="http://ftp.osuosl.org/pub/eclipse//technology/epp/downloads/release/kepler/SR2/${fileName}.tar.gz";
+dest=$CACHE_PATH/${fileName}.tgz
+
+wget -Nc $src -O $dest
+
+tar -zxvf $CACHE_PATH/${fileName}.tgz -C $MY_PATH
+
+ln -fs $MY_PATH/${fileName} $MY_PATH/eclipse

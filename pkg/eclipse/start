@@ -1,0 +1,6 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+$MY_PATH/eclipse/Eclipse.app/Contents/MacOS/eclipse 

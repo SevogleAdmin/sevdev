@@ -1,0 +1,23 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CACHE_PATH=$MY_PATH/../../.cache
+
+mkdir -p $CACHE_PATH
+
+mongoVersion="2.4.9"
+mongoPlatform="osx"
+mongoPlatformArch="x86_64"
+mongoFile="mongodb-${mongoPlatform}-${mongoPlatformArch}-${mongoVersion}"
+
+src="http://fastdl.mongodb.org/${mongoPlatform}/${mongoFile}.tgz";
+dest=$CACHE_PATH/${mongoFile}.tgz
+
+wget -Nc $src -O $dest
+
+tar -zxvf $CACHE_PATH/${mongoFile}.tgz -C $MY_PATH
+
+mkdir -p $MY_PATH/data
+
+ln -fs $MY_PATH/${mongoFile} $MY_PATH/mongo

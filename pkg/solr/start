@@ -1,0 +1,6 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+(cd $MY_PATH/solr/example && java -Dbootstrap_confdir=./solr/template/conf -Dcollection.configName=conf1 -DzkRun -DnumShards=1 -jar start.jar )

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CACHE_PATH=$MY_PATH/../../.cache
+
+mkdir -p $CACHE_PATH
+
+dest=$CACHE_PATH/git-1.9.0.dmg
+wget -Nc http://downloads.sourceforge.net/project/git-osx-installer/git-1.9.0-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgit-osx-installer%2Ffiles%2F&ts=1395727953&use_mirror=superb-dca2 -O $dest
+
+open $dest

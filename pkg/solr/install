@@ -1,0 +1,24 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CACHE_PATH=$MY_PATH/../../.cache
+
+mkdir -p $CACHE_PATH
+
+solrVersion="4.7.0"
+
+solrFile=solr-${solrVersion}
+
+src="http://apache.mirrors.hoobly.com/lucene/solr/${solrVersion}/${solrFile}.tgz";
+
+dest=$CACHE_PATH/${solrFile}.tgz
+
+wget -Nc $src -O $dest
+
+tar -zxvf $dest -C $MY_PATH
+
+ln -fs $MY_PATH/${solrFile} $MY_PATH/solr
+
+ln -sf $MY_PATH/../../git/choosr/hive.server/solr/template solr/example/solr/template
+

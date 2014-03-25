@@ -1,0 +1,7 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CACHE_PATH=$MY_PATH/../../.cache
+
+$MY_PATH/mongo/bin/mongod --dbpath $MY_PATH/data
