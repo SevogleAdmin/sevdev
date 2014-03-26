@@ -10,7 +10,7 @@ if test -n "$REPO";
 then
   	if [ -d $GIT_PATH/$REPO ]
   	then
-	    (cd $GIT_PATH/$REPO && git branch --merged master | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d )
+	    (cd $GIT_PATH/$REPO && git branch --merged origin/master | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d )
   	else
   		echo "unknown repo $REPO"
   	fi

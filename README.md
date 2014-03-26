@@ -23,6 +23,7 @@ Manual dev env installation
  1. 
 6. Install SourceTree
  1. 
+7. Install Java JDK
 
 
 Setup SevDev
@@ -52,3 +53,12 @@ Automated tools
  * sevdev eclipse install
  * sevdev eclipse start
   * still needs gwt installed, I don't have this done yet.
+
+
+Initial Eclipse Run
+=====
+Select _/sev/ws/choosr_ for workspace
+Import all projects in
+* _/sev/git/choosr_
+ * note you will need to select them individually until the toplevel .project file is removed
+* _/sev/git/larkspur_
