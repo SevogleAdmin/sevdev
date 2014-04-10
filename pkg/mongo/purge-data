@@ -1,0 +1,8 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DATA_PATH=$MY_PATH/data
+
+rm -rf $DATA_PATH
+mkdir $DATA_PATH

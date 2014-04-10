@@ -3,6 +3,7 @@ set -x
 
 MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 CACHE_PATH=$MY_PATH/../../.cache
+BIN_PATH=$MY_PATH/../../bin/
 
 mkdir -p $CACHE_PATH
 
@@ -21,3 +22,4 @@ tar -zxvf $CACHE_PATH/${mongoFile}.tgz -C $MY_PATH
 mkdir -p $MY_PATH/data
 
 ln -fs $MY_PATH/${mongoFile} $MY_PATH/mongo
+ln -fs $MY_PATH/mongo/bin/mongo $BIN_PATH
