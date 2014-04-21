@@ -16,7 +16,6 @@ then
 else
   echo must specify either list or service name
   echo "sevdev list"
-  echo "sevdev git-init"
   echo "sevdev cache-clean"
   echo "sevdev <seviceName> <action install|start|stop>"
   exit -1
@@ -26,24 +25,6 @@ fi
 if [[ $SERVICE == "list" ]]
 then
 	ls -1 $PKG_PATH
-	exit
-fi
-
-if [[ $SERVICE == "git-init" ]]
-then
-	GIT_DIR=$MY_PATH/../git/
-	if [ ! -d "$GIT_DIR/choosr" ]; then
-		git clone https://github.com/SevogleAdmin/choosr.git $GIT_DIR/choosr
-	fi
-	if [ ! -d "$GIT_DIR/larkspur" ]; then
-		git clone https://github.com/SevogleAdmin/larkspur.git $GIT_DIR/larkspur
-	fi
-	if [ ! -d "$GIT_DIR/deploy" ]; then
-		git clone https://github.com/SevogleAdmin/deploy.git $GIT_DIR/deploy
-	fi
-	if [ ! -d "$GIT_DIR/hivepoint_website" ]; then
-		git clone https://github.com/SevogleAdmin/hivepoint_website.git $GIT_DIR/hivepoint_website
-	fi
 	exit
 fi
 

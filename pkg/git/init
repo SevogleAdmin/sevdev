@@ -1,0 +1,35 @@
+#!/bin/sh
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+GIT_DIR=$MY_PATH/../../git/
+if [ ! -d "$GIT_DIR/choosr" ]; then
+	git clone https://github.com/SevogleAdmin/choosr.git $GIT_DIR/choosr
+else
+	echo "choosr already exists"
+fi
+if [ ! -d "$GIT_DIR/larkspur" ]; then
+	git clone https://github.com/SevogleAdmin/larkspur.git $GIT_DIR/larkspur
+else
+	echo "larkspur already exists"
+fi
+if [ ! -d "$GIT_DIR/deploy" ]; then
+	git clone https://github.com/SevogleAdmin/deploy.git $GIT_DIR/deploy
+else
+	echo "deploy already exists"
+fi
+if [ ! -d "$GIT_DIR/hivepoint_website" ]; then
+	git clone https://github.com/SevogleAdmin/hivepoint_website.git $GIT_DIR/hivepoint_website
+else
+	echo "hivepoint_website already exists"
+fi
+if [ ! -d "$GIT_DIR/hivemgmt" ]; then
+	git clone https://github.com/SevogleAdmin/hivemgmt.git $GIT_DIR/hivemgmt
+else
+	echo "hivemgmt already exists"
+fi
+if [ ! -d "$GIT_DIR/buildtools" ]; then
+	git clone https://github.com/SevogleAdmin/buildtools.git $GIT_DIR/buildtools
+else
+	echo "buildtools already exists"
+fi
