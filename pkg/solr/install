@@ -14,7 +14,7 @@ src="http://apache.mirrors.hoobly.com/lucene/solr/${solrVersion}/${solrFile}.tgz
 
 dest=$CACHE_PATH/${solrFile}.tgz
 
-wget -Nc $src -O $dest
+curl -C -  $src -O $dest -z $dest
 
 tar -zxvf $dest -C $MY_PATH
 
@@ -22,36 +22,39 @@ ln -fs $MY_PATH/${solrFile} $MY_PATH/solr
 
 for COLLECTION_NAME in "conf1" "chnls_v0"
 do
-	DIRECTORY=$MY_PATH/solr/example/solr/$COLLECTION_NAME
-	if [ ! -d "$DIRECTORY" ]; then
-		cp -r $MY_PATH/solr/example/solr/collection1 $DIRECTORY
-		rm $DIRECTORY/core.properties
-		echo "name=$COLLECTION_NAME" > $DIRECTORY/core.properties
+	for PREFIX in "" "test_"
+	do
+		DIRECTORY=$MY_PATH/solr/example/solr/$PREFIX$COLLECTION_NAME
+		if [ ! -d "$DIRECTORY" ]; then
+			cp -r $MY_PATH/solr/example/solr/collection1 $DIRECTORY
+			rm $DIRECTORY/core.properties
+			echo "name=$PREFIX$COLLECTION_NAME" > $DIRECTORY/core.properties
 		
-		for FILE_NAME in "schema.xml" "solrconfig.xml"
-		do
-			rm $DIRECTORY/conf/$FILE_NAME
-			SRC_FILE="NOT_SET"
-			if [ "$COLLECTION_NAME" == "chnls_v0" ] 
-			then
-				echo "chnls"
-				SRC_FILE=$MY_PATH/../../git/chnls/chnls.server/solr/$FILE_NAME
-			fi
-			if [ "$COLLECTION_NAME" == "conf1" ] 
-			then
-				echo "hivepoint"
-				SRC_FILE=$MY_PATH/../../git/choosr/hive.server/solr/$FILE_NAME
-			fi
-			if [ $SRC_FILE == "NOT_SET" ]
-			then
-				echo "SRC NOT SET"
-				exit 1
-			fi
+			for FILE_NAME in "schema.xml" "solrconfig.xml"
+			do
+				rm $DIRECTORY/conf/$FILE_NAME
+				SRC_FILE="NOT_SET"
+				if [ "$COLLECTION_NAME" == "chnls_v0" ] 
+				then
+					echo "chnls"
+					SRC_FILE=$MY_PATH/../../git/chnls/chnls.server/solr/$FILE_NAME
+				fi
+				if [ "$COLLECTION_NAME" == "conf1" ] 
+				then
+					echo "hivepoint"
+					SRC_FILE=$MY_PATH/../../git/choosr/hive.server/solr/$FILE_NAME
+				fi
+				if [ $SRC_FILE == "NOT_SET" ]
+				then
+					echo "SRC NOT SET"
+					exit 1
+				fi
 			
-			ln -s $SRC_FILE $DIRECTORY/conf/$FILE_NAME
-		done
-	else
-		echo $COLLECTION_NAME exists at $DIRECTORY
-	fi
+				ln -s $SRC_FILE $DIRECTORY/conf/$FILE_NAME
+			done
+		else
+			echo $COLLECTION_NAME exists at $DIRECTORY
+		fi
+	done
 done
 

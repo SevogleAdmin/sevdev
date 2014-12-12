@@ -12,18 +12,9 @@ Manual machine installation
 
 Manual dev env installation
 ====
-1. Install XCode from App Store
-2. Install XCode Command Line tools
- 1.
-3. Install MacPorts
- 1. 
 4. Install git
- 1.
-5. Install wget
- 1. 
-6. Install SourceTree
- 1. 
-7. Install Java JDK
+6. Install SourceTree _optional_
+7. Install Java JDK _optional_
 
 
 Setup SevDev
