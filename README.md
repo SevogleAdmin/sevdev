@@ -28,12 +28,11 @@ Manual dev env installation
 
 Setup SevDev
 =====
-1. sudo mkdir /sev
-2. sudo chown <userId> /sev
-3. sudo chgrp staff /sev
-4. git clone https://github.com/SevogleAdmin/sevdev.git /sev
+1. `sudo mkdir /sev`
+2. `sudo chown <userId>:staff /sev`
+4. `git clone https://github.com/SevogleAdmin/sevdev.git /sev`
 5. update path
- 1. echo 'export PATH=/sev/bin:$PATH' >> ~/.profile
+ 1. `echo 'export PATH=/sev/bin:$PATH' >> ~/.profile`
  2. open new terminal window and type _sevdev_ it should now be in the path and execute.
 
 
