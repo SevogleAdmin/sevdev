@@ -1,0 +1,10 @@
+#!/bin/sh
+set -x
+
+MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DATA_PATH=$MY_PATH/solr/example/solr/
+
+ls $DATA_PATH | grep "shard1_replica1"
+rm -rf ${DATA_PATH}*shard1_replica1*
+ls $DATA_PATH | grep "shard1_replica1"
+#mkdir $DATA_PATH

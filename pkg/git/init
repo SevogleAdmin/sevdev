@@ -3,6 +3,11 @@
 MY_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 GIT_DIR=$MY_PATH/../../git/
+if [ ! -d "$GIT_DIR/chnls" ]; then
+	git clone https://github.com/SevogleAdmin/chnls.git $GIT_DIR/chnls
+else
+	echo "chnls already exists"
+fi
 if [ ! -d "$GIT_DIR/choosr" ]; then
 	git clone https://github.com/SevogleAdmin/choosr.git $GIT_DIR/choosr
 else

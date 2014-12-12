@@ -7,7 +7,7 @@ BIN_PATH=$MY_PATH/../../bin/
 
 mkdir -p $CACHE_PATH
 
-mongoVersion="2.4.9"
+mongoVersion="2.6.6"
 mongoPlatform="osx"
 mongoPlatformArch="x86_64"
 mongoFile="mongodb-${mongoPlatform}-${mongoPlatformArch}-${mongoVersion}"
