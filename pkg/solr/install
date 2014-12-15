@@ -14,7 +14,7 @@ src="http://apache.mirrors.hoobly.com/lucene/solr/${solrVersion}/${solrFile}.tgz
 
 dest=$CACHE_PATH/${solrFile}.tgz
 
-curl -C -  $src -O $dest -z $dest
+curl -C -  $src -o $dest -z $dest
 
 tar -zxvf $dest -C $MY_PATH
 

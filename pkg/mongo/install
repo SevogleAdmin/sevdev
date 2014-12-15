@@ -15,7 +15,7 @@ mongoFile="mongodb-${mongoPlatform}-${mongoPlatformArch}-${mongoVersion}"
 src="http://fastdl.mongodb.org/${mongoPlatform}/${mongoFile}.tgz";
 dest=$CACHE_PATH/${mongoFile}.tgz
 
-curl -C - $src -O $dest -z $dest
+curl -C - $src -o $dest -z $dest
 
 tar -zxvf $CACHE_PATH/${mongoFile}.tgz -C $MY_PATH
 

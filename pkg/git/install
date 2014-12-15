@@ -6,6 +6,6 @@ CACHE_PATH=$MY_PATH/../../.cache
 mkdir -p $CACHE_PATH
 
 dest=$CACHE_PATH/git-1.9.0.dmg
-curl -C - http://downloads.sourceforge.net/project/git-osx-installer/git-1.9.0-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgit-osx-installer%2Ffiles%2F&ts=1395727953&use_mirror=superb-dca2 -O $dest -z $dest
+curl -C - http://downloads.sourceforge.net/project/git-osx-installer/git-1.9.0-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgit-osx-installer%2Ffiles%2F&ts=1395727953&use_mirror=superb-dca2 -o $dest -z $dest
 
 open $dest

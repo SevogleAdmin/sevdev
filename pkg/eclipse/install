@@ -11,7 +11,7 @@ fileName="eclipse-jee-kepler-SR2-macosx-cocoa-x86_64"
 src="http://ftp.osuosl.org/pub/eclipse//technology/epp/downloads/release/kepler/SR2/${fileName}.tar.gz";
 dest=$CACHE_PATH/${fileName}.tgz
 
-curl -C - $src -O $dest -z $dest
+curl -C - $src -o $dest -z $dest
 
 tar -zxvf $CACHE_PATH/${fileName}.tgz -C $MY_PATH
 
